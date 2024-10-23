@@ -80,8 +80,8 @@ describe('MessagesList', () => {
     const params = getDefaultParams();
     params.conversation.addMessage(createTextMessage('hello'));
 
-    const {getByText} = render(<MessagesList {...params} />);
-    await waitFor(() => getByText('hello'));
+    const {findByText} = render(<MessagesList {...params} />);
+    await waitFor(() => findByText('hello'));
     expect(params.onLoading).toHaveBeenCalled();
     expect(params.conversationRepository.getPrecedingMessages).toHaveBeenCalled();
   });
